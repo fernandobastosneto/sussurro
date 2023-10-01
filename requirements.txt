@@ -1,6 +1,6 @@
 streamlit==1.25.0
-whisper==1.1.10
+openai-whisper==20230918
 pytube==15.0.0
 validators==0.21.2
-tiktoken==0.5.1
+tiktoken==0.3.3
 openai==0.27.8
