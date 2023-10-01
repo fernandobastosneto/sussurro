@@ -47,6 +47,7 @@ with st.sidebar:
     api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
     "[Como pegar uma API key da OpenAI](https://platform.openai.com/account/api-keys)"
     "[View the source code](https://github.com/fernandobastosneto/sussurro/)"
+    "Criado por Fernando Bastos (fernando.bastos@itamaraty.gov.br)"
 
 st.title("📚 Tradutor de Vídeos do YouTube")
 st.caption("🌍 Um bot que transcreve vídeos e os traduz para a língua portuguesa. Utiliza o Whisper e o GPT-4, ambos da OpenAI")
@@ -55,7 +56,7 @@ with st.form('my_form'):
   url = st.text_input("URL do YouTube:")
   submitted = st.form_submit_button('Submit')
   if not api_key.startswith('sk-'):
-    st.warning('Não esqueça de colocar a API key da OpenAI!', icon='⚠')
+    st.warning('Não esqueça da API key da OpenAI!', icon='⚠')
   if submitted and api_key.startswith('sk-'):
     if url:
         if validators.url(url):
