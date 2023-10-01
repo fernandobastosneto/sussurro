@@ -12,7 +12,7 @@ def transcribe(file):
     transcription = model.transcribe(file)
     return transcription["text"]
 
-@st.cache_data
+# @st.cache_data
 def download_youtube_audio(url):
     yt = YouTube(url)
     yt.streams.get_audio_only().download(filename="yt.mp4")
