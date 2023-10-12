@@ -8,8 +8,6 @@ import openai
 # Load whisper model
 model = whisper.load_model("base")
 
-model.transcribe()
-
 def transcribe(file):
     transcription = model.transcribe(file,
                                      initial_prompt="Using your vast training data and understanding of languages, transcribe the following Egyptian Arabic audio into accurate written Arabic text.")
@@ -53,7 +51,7 @@ with st.sidebar:
     "Criado por Fernando Bastos (fernando.bastos@itamaraty.gov.br)"
 
 st.title("📚 Tradutor de Vídeos do YouTube")
-st.caption("🌍 Um bot que transcreve vídeos e os traduz para a língua portuguesa. Utiliza o Whisper e o GPT-4, ambos da OpenAI")
+st.caption("🌍 Um bot que transcreve vídeos e os traduz para o inglês. Utiliza o Whisper e o GPT-4, ambos da OpenAI")
 
 with st.form('my_form'):
   url = st.text_input("URL do YouTube:")
@@ -71,7 +69,7 @@ with st.form('my_form'):
             token_count = num_tokens_from_string(transcricao, "cl100k_base")
             st.write("Token Count:", token_count)
 
-            with st.spinner('Passo 2 de 2 - Traduzindo para o português...'):
+            with st.spinner('Passo 2 de 2 - Traduzindo para o inglês...'):
                 traducao = traduzir(transcricao)
             st.write(traducao)
             
