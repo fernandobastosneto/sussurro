@@ -8,8 +8,11 @@ import openai
 # Load whisper model
 model = whisper.load_model("base")
 
+model.transcribe()
+
 def transcribe(file):
-    transcription = model.transcribe(file)
+    transcription = model.transcribe(file,
+                                     initial_prompt="Using your vast training data and understanding of languages, transcribe the following Egyptian Arabic audio into accurate written Arabic text.")
     return transcription["text"]
 
 # @st.cache_data
@@ -31,7 +34,7 @@ def traduzir(transcription):
         messages=[
             {
                 "role": "system",
-                "content": "You are a highly skilled AI trained in language comprehension. Please translate the following text from its native language to Portuguese. Ensure that the translation captures the essence and nuances of the original text as much as possible. Observe that the text might be informal and might have colloquialisms and be a transcription of someone speaking."
+                "content": "You are a highly skilled AI trained in language comprehension. Please translate the following text from its native language to English. Ensure that the translation captures the essence and nuances of the original text as much as possible. Observe that the text might be informal and might have colloquialisms and be a transcription of someone speaking."
             },
             {
                 "role": "user",
